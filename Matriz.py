@@ -114,7 +114,8 @@ class Matriz:
         print(f"Para generar PNG: dot -Tpng {nombre_archivo}.dot -o {nombre_archivo}.png")
         return dot.source
 
-
+#FUNCIONALIDADES EXTRA FALTANTES
+    
 
 
 

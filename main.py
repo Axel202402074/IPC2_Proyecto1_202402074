@@ -14,6 +14,7 @@ def main():
         print("|3. Graficar matrices                 |")
         print("|4. Salir                             |")
         print("---------------------------------------")
+        print("|5. Datos                             |")
         opcion = input("Seleccione una opcion: ")
         
         if opcion == "1":
