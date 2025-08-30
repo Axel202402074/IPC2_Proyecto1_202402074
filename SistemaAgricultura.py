@@ -97,3 +97,41 @@ class SistemaAgricultura:
                 return
             actual = actual.siguiente
         print(f"Campo {id_campo} no encontrado")
+
+    def procesar_campos(self):
+        #Procesa el agrupamiento para todos los campos cargados
+        if self.campos.longitud == 0:
+            print("Error: No hay campos cargados para procesar")
+            return
+        
+        print("\n" + "="*50)
+        print("Agrupando campos")
+        print("="*50)
+        
+        actual = self.campos.primero
+        campos_procesados = 0
+        
+        while actual:
+            campo = actual.dato
+            exito = campo.procesar_agrupamiento()
+            if exito:
+                campos_procesados += 1
+            actual = actual.siguiente
+        
+        print(f"\n✓ Procesamiento completado: {campos_procesados} campo(s) procesado(s)")
+        print("="*50)
+
+    def mostrar_resultados_procesamiento(self):
+        """Muestra los resultados de procesamiento de todos los campos"""
+        if self.campos.longitud == 0:
+            print("Error: No hay campos para mostrar")
+            return
+        
+        actual = self.campos.primero
+        while actual:
+            campo = actual.dato
+            if hasattr(campo, 'estaciones_reducidas') and campo.estaciones_reducidas:
+                campo.mostrar_resultados_agrupamiento()
+            else:
+                print(f"Campo {campo.id}: No ha sido procesado aún")
+            actual = actual.siguiente
